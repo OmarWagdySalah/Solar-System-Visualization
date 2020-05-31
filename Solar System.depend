@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1589600541 source:f:\engineering stuff\work area\solar system\main.cpp
+1590491284 source:f:\engineering stuff\work area\solar system\main.cpp
 	<GL/gl.h>
 	<GL/glut.h>
+	<stdio.h>
 	<math.h>
 
 1301111164 c:\program files (x86)\codeblocks\mingw\include\gl\gl.h
@@ -230,4 +231,14 @@
 
 1341006774 c:\program files (x86)\codeblocks\mingw\include\math.h
 	<_mingw.h>
+
+1341006776 c:\program files (x86)\codeblocks\mingw\include\stdio.h
+	<_mingw.h>
+	<stddef.h>
+	<stdarg.h>
+	<sys/types.h>
+
+1341006780 c:\program files (x86)\codeblocks\mingw\include\sys\types.h
+	<_mingw.h>
+	<stddef.h>
 

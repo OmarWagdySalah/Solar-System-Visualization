@@ -1,9 +1,12 @@
 #include <GL/gl.h>
 #include <GL/glut.h>
+#include<stdio.h>
 
 #include <math.h>
 #define PI 3.14159265
 float theta=0;
+float dtheta=0.1;
+float temp;
 const GLfloat light_ambient[]  = { 0.0f, 0.0f, 0.0f, 1.0f };
 const GLfloat light_diffuse[]  = { 1.0f, 1.0f, 1.0f, 1.0f };
 const GLfloat light_specular[] = { 1.0f, 1.0f, 1.0f, 1.0f };
@@ -97,7 +100,7 @@ void display () {
                         glutSolidSphere(.1,36,36);                       /// Drawing  Neptune as a solid sphere with radius 0.1
 
                 glPopMatrix();
-     theta= (theta+.3);                                         ///Incrementing the angle of rotation
+     theta= (theta+dtheta);                                         ///Incrementing the angle of rotation
 
     glFlush();                              /// flush drawing routines to the window
 
@@ -114,6 +117,35 @@ void idle ()
 {
     ///Redisplaying the scene
     glutPostRedisplay();
+}
+/// Keyboard action listener function
+static void key(unsigned char key, int x, int y)
+{
+    printf("%c",key);
+    switch (key)
+    {
+
+        case 'q':
+            exit(0);
+            break;
+            //if the character P is pressed
+        case 'P':
+        case 'p':
+        dtheta+=0.1;        ///Increase the rotational speed
+            break;
+        case 'l':
+        case 'L':
+    if(dtheta-0.1>0)
+        dtheta-=0.1;                ///Increase the rotational speed
+            break;
+        case 'S':
+        case 's':
+            ///if the character s is pressed
+            ///Stopping the rotation
+                dtheta=0;
+            break;
+    }
+
 }
 int main ( int argc, char * argv[] ) {
 
@@ -132,6 +164,7 @@ int main ( int argc, char * argv[] ) {
     glutDisplayFunc(display);
     glutReshapeFunc(reshape);
     glutIdleFunc(idle);
+    glutKeyboardFunc(key);
     /* define the projection transformation */
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
